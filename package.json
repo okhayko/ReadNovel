@@ -1,0 +1,42 @@
+{
+  "name": "light-novel-translator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build",
+    "start": "tsx server.ts",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^1.47.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/express": "^5.0.6",
+    "axios": "^1.14.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "gsap": "^3.14.2",
+    "localforage": "^1.10.0",
+    "lucide-react": "^1.7.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.49.0",
+    "motion": "^12.38.0",
+    "msedge-tts": "^2.0.4",
+    "ogl": "^1.0.11",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.2",
+    "three": "^0.183.2",
+    "tsx": "^4.21.0",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2"
+  }
+}

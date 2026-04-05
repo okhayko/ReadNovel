@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+
+:root {
+  --app-accent: #04DA98;
+  --app-accent-rgb: 4, 218, 152;
+}
+
+body {
+  color-scheme: dark;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2C2C2C;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7D7D7D;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999999;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7D7D7D #2C2C2C;
+}
+
+/* Global Button Sliding Glow Effect */
+@layer components {
+  button {
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.2s ease, transform 0.1s ease;
+  }
+
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  button:hover {
+    filter: brightness(1.2);
+  }
+
+  button:hover::after {
+    left: 150%;
+  }
+
+  .no-glow::after {
+    display: none !important;
+  }
+}
+
+@font-face {
+  font-family: 'Texturina_48pt-Bold';
+  src: url('/fonts/Texturina_48pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Texturina-SemiBold';
+  src: url('/fonts/Texturina_28pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald-Light';
+  src: url('/fonts/Oswald-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald-Medium';
+  src: url('/fonts/Oswald-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gelasio-Regular';
+  src: url('/fonts/Gelasio-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@theme {
+  --font-sora: "Sora", sans-serif;
+  --font-texturina: "Texturina-SemiBold", serif;
+  --font-texturina-bold: "Texturina_48pt-Bold", serif;
+  --font-oswald: "Oswald-Light", sans-serif;
+  --font-oswald-medium: "Oswald-Medium", sans-serif;
+  --font-gelasio: "Gelasio-Regular", serif;
+  --font-noto-serif: "Noto Serif", serif;
+
+  --color-app-bg: #1B1D1E;
+  --color-app-accent: var(--app-accent, #04DA98);
+  --color-app-accent-hover: var(--app-accent, #04DA98);
+  --color-app-surface: #242729;
+  --color-app-surface-hover: #2C3033;
+  --color-app-border: #33383B;
+  --color-app-text: #E8E9EA;
+  --color-app-text-muted: #9AA0A6;
+
+  --transition-stroke-1: #121414; /* Swapped: was accent */
+  --transition-stroke-2: var(--app-accent); /* Swapped: was #121414 */
+  
+  /* Custom Button Effect Variables */
+  --primary: 250 66% 61%; /* Default purple, will be overridden by accent if possible */
+
+  --animate-meteor: meteor 5s linear infinite;
+
+  @keyframes meteor {
+    0% {
+      transform: rotate(var(--angle)) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(var(--angle)) translateX(-500px);
+      opacity: 0;
+    }
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.transition-svg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.transition-svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.transition-svg path {
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 10000;
+}
