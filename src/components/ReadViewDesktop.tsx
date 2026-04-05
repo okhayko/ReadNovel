@@ -4,7 +4,6 @@ import DialogueLine from './DialogueLine';
 import GooeyNav from './GooeyNav';
 import CustomDropdown from './CustomDropdown';
 import { 
-    ChevronLeftIcon,
     SettingsIcon, 
     LineHeightIcon, 
     ParagraphSpacingIcon, 
@@ -27,7 +26,6 @@ import ColorPicker from './ColorPicker';
 import { InteractiveHoverButton } from './InteractiveHoverButton';
 import TTSPlayerDesktop from './TTSPlayerDesktop';
 import FloatingPauseButton from './FloatingPauseButton';
-import LibraryBackButton from './LibraryBackButton';
 
 interface ReadViewProps {
     readState: ReadState;
@@ -218,7 +216,12 @@ const ReadViewDesktop: React.FC<ReadViewProps> = ({ readState, setReadState, cus
                 }}
             >
                 <div className="flex space-x-2 flex-1">
-                    <LibraryBackButton onClick={onBack} />
+                    <InteractiveHoverButton 
+                        onClick={onBack}
+                        className="text-sm"
+                    >
+                        Thư viện
+                    </InteractiveHoverButton>
                 </div>
                 {currentChapter && (
                     <div className="flex-1 text-center truncate px-4">
